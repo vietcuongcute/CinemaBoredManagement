@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DataLayer;
 
 namespace BusinessLayer
@@ -11,19 +7,19 @@ namespace BusinessLayer
     {
         TicketDL ticketDL = new TicketDL();
 
-        public List<int> LayDanhSachGheDaDat(int movieID)
+        public List<int> LayDanhSachGheDaDat(int suatChieuID)
         {
-            return ticketDL.LayDanhSachGheDaDat(movieID);
+            return ticketDL.LayDanhSachGheDaDat(suatChieuID);
         }
 
-        public bool KiemTraGheDaDat(int movieID, int seatNumber)
+        public bool KiemTraGheDaDat(int suatChieuID, int seatNumber)
         {
-            return ticketDL.KiemTraGheDaDat(movieID, seatNumber);
+            return ticketDL.KiemTraGheDaDat(suatChieuID, seatNumber);
         }
 
-        public bool ThemVe(int billID, int seatNumber, int movieID)
+        public bool ThemVe(int billID, int seatNumber, int movieID, int suatChieuID)
         {
-            return ticketDL.ThemVe(billID, seatNumber, movieID);
+            return ticketDL.ThemVe(billID, seatNumber, movieID, suatChieuID);
         }
     }
 }

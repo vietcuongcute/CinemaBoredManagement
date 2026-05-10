@@ -11,10 +11,10 @@ namespace BusinessLayer
     {
         BillDL billDL = new BillDL();
 
-        public int ThemHoaDonVaLayBillID(int customerID, int movieID, string gheDaChon,
-            decimal tienGhe, decimal tienDoAn, decimal tongTien, string phuongThuc)
+        public int ThemHoaDonVaLayBillID(int customerID, int movieID, int suatChieuID, string gheDaChon,
+    decimal tienGhe, decimal tienDoAn, decimal tongTien, string phuongThuc)
         {
-            return billDL.ThemHoaDonVaLayBillID(customerID, movieID, gheDaChon, tienGhe, tienDoAn, tongTien, phuongThuc);
+            return billDL.ThemHoaDonVaLayBillID(customerID, movieID, suatChieuID, gheDaChon, tienGhe, tienDoAn, tongTien, phuongThuc);
         }
     }
 }

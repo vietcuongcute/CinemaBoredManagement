@@ -88,7 +88,15 @@ namespace PresentationLayer
                 return;
             }
 
-            FormDatVe f = new FormDatVe(movieID, tenPhim, theLoai, thoiLuong, giaVe, duongDanAnh);
+            FormChonSuatChieu f = new FormChonSuatChieu(
+                    movieID,
+                    tenPhim,
+                    theLoai,
+                    thoiLuong,
+                    giaVe,
+                    duongDanAnh
+            );
+
             f.ShowDialog();
         }
     }

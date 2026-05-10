@@ -20,22 +20,32 @@ namespace PresentationLayer
         private int _thoiLuong;
         private decimal _giaVe;
         private string _duongDanAnh;
+        private int _suatChieuID;
         private FoodBL foodBL = new FoodBL();
         private int _customerID = 0;
         private string _phuongThucThanhToan = "";
+        private string _ngayChieu;
+        private string _gioChieu;
+        private string _phongChieu;
 
         private TicketBL ticketBL = new TicketBL();
         private BillBL billBL = new BillBL();
-        public FormDatVe(int movieID, string tenPhim, string theLoai, int thoiLuong, decimal giaVe, string duongDanAnh)
+        public FormDatVe(int movieID, int suatChieuID, string tenPhim, string theLoai, int thoiLuong, decimal giaVe, string duongDanAnh, string ngayChieu,
+    string gioChieu,
+    string phongChieu)
         {
-
             InitializeComponent();
+
             _movieID = movieID;
+            _suatChieuID = suatChieuID;
             _tenPhim = tenPhim;
             _theLoai = theLoai;
             _thoiLuong = thoiLuong;
             _giaVe = giaVe;
             _duongDanAnh = duongDanAnh;
+            _ngayChieu = ngayChieu;
+    _gioChieu = gioChieu;
+    _phongChieu = phongChieu;
         }
 
 
@@ -165,7 +175,7 @@ namespace PresentationLayer
         }
         private void DanhDauGheDaBan()
         {
-            List<int> gheDaBan = ticketBL.LayDanhSachGheDaDat(_movieID);
+            List<int> gheDaBan = ticketBL.LayDanhSachGheDaDat(_suatChieuID);
 
             foreach (int seat in gheDaBan)
             {
@@ -253,18 +263,18 @@ namespace PresentationLayer
 
             string gheDaChon = string.Join(", ", dsGheDaChon.OrderBy(x => x));
 
-            int billID = billBL.ThemHoaDonVaLayBillID(customerID, _movieID, gheDaChon, tienGhe, tienDoAn, tongTien, phuongThucThanhToan);
+            int billID = billBL.ThemHoaDonVaLayBillID(customerID, _movieID, _suatChieuID, gheDaChon, tienGhe, tienDoAn, tongTien, phuongThucThanhToan);
 
             foreach (int seat in dsGheDaChon)
             {
-                ticketBL.ThemVe(billID, seat, _movieID);
+                ticketBL.ThemVe(billID, seat, _movieID, _suatChieuID);
             }
         }
         private bool KiemTraGheTrung()
         {
             foreach (int seat in dsGheDaChon)
             {
-                if (ticketBL.KiemTraGheDaDat(_movieID, seat))
+                if (ticketBL.KiemTraGheDaDat(_suatChieuID, seat))
                 {
                     MessageBox.Show("Ghế " + seat + " đã được đặt!");
                     DanhDauGheDaBan();
@@ -330,7 +340,7 @@ namespace PresentationLayer
             }
 
             FormThanhToanTienMat f = new FormThanhToanTienMat(tongTien);
-
+            
             if (f.ShowDialog() == DialogResult.OK)
             {
                 _customerID = f.CustomerID;
@@ -390,15 +400,30 @@ namespace PresentationLayer
             e.Graphics.DrawString("CINEMA BORED", new Font("Times New Roman", 25, FontStyle.Bold), Brushes.Purple, 250, y);
             y += 50;
 
-            e.Graphics.DrawString("Tên phim: " + _tenPhim, new Font("Times New Roman", 18 ,FontStyle.Bold), Brushes.Black, 100, y); y += 30;
-            e.Graphics.DrawString("Ghế đã mua: " + txtGheDaChon.Text, new Font("Times New Roman", 18), Brushes.Black, 100, y); y += 30;
-            e.Graphics.DrawString("Tạm tính ghế: " + txtTinhGhe.Text, new Font("Times New Roman", 23), Brushes.Black, 100, y); y += 30;
-            e.Graphics.DrawString("Bắp: " + cboBap.Text + " x" + nudSoLuongBap.Value, new Font("Times New Roman", 18), Brushes.Black, 100, y);
+            e.Graphics.DrawString("Tên phim: " + _tenPhim,
+     new Font("Times New Roman", 18, FontStyle.Bold),
+     Brushes.Black, 100, y);
             y += 30;
 
-            e.Graphics.DrawString("Nước: " + cboNuoc.Text + " x" + nudSoLuongNuoc.Value, new Font("Times New Roman", 18), Brushes.Black, 100, y);
+            e.Graphics.DrawString("Ngày chiếu: " + _ngayChieu,
+                new Font("Times New Roman", 18),
+                Brushes.Black, 100, y);
             y += 30;
-            e.Graphics.DrawString("Tạm tính bắp nước: " + txtTinhBapNuoc.Text ,  new Font("Times New Roman", 18), Brushes.Black, 100, y); y += 30;
+
+            e.Graphics.DrawString("Giờ chiếu: " + _gioChieu,
+                new Font("Times New Roman", 18),
+                Brushes.Black, 100, y);
+            y += 30;
+
+            e.Graphics.DrawString("Phòng chiếu: " + _phongChieu,
+                new Font("Times New Roman", 18),
+                Brushes.Black, 100, y);
+            y += 30;
+
+            e.Graphics.DrawString("Ghế đã mua: " + txtGheDaChon.Text,
+                new Font("Times New Roman", 18),
+                Brushes.Black, 100, y);
+            y += 30;
             e.Graphics.DrawString("Tổng tiền: " + txtTongtien.Text, new Font("Times New Roman", 18), Brushes.Black, 100, y); y += 30;
             e.Graphics.DrawString("Phương thức thanh toán: " + _phuongThucThanhToan, new Font("Times New Roman", 18), Brushes.Black, 100, y); y += 30;
             e.Graphics.DrawLine(Pens.Black, 100, y, 500, y);

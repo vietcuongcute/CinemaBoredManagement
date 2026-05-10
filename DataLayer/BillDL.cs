@@ -11,23 +11,25 @@ namespace DataLayer
     {
         DataProvider dp = new DataProvider();
 
-        public int ThemHoaDonVaLayBillID(int customerID, int movieID, string gheDaChon,
-            decimal tienGhe, decimal tienDoAn, decimal tongTien, string phuongThuc)
+        public int ThemHoaDonVaLayBillID(int customerID, int movieID, int suatChieuID, string gheDaChon,
+    decimal tienGhe, decimal tienDoAn, decimal tongTien, string phuongThuc)
         {
-            string sql = @"INSERT INTO HoaDon(CustomerID, MovieID, GheDaChon, TienGhe, TienDoAn, TongTien, PhuongThucThanhToan)
-                           VALUES(@CustomerID, @MovieID, @GheDaChon, @TienGhe, @TienDoAn, @TongTien, @PhuongThuc);
-                           SELECT SCOPE_IDENTITY();";
+            string sql = @"
+        INSERT INTO HoaDon(CustomerID, MovieID, SuatChieuID, GheDaChon, TienGhe, TienDoAn, TongTien, PhuongThucThanhToan)
+        VALUES(@CustomerID, @MovieID, @SuatChieuID, @GheDaChon, @TienGhe, @TienDoAn, @TongTien, @PhuongThuc);
+        SELECT SCOPE_IDENTITY();";
 
             SqlParameter[] prms =
             {
-                new SqlParameter("@CustomerID", customerID),
-                new SqlParameter("@MovieID", movieID),
-                new SqlParameter("@GheDaChon", gheDaChon),
-                new SqlParameter("@TienGhe", tienGhe),
-                new SqlParameter("@TienDoAn", tienDoAn),
-                new SqlParameter("@TongTien", tongTien),
-                new SqlParameter("@PhuongThuc", phuongThuc)
-            };
+        new SqlParameter("@CustomerID", customerID),
+        new SqlParameter("@MovieID", movieID),
+        new SqlParameter("@SuatChieuID", suatChieuID),
+        new SqlParameter("@GheDaChon", gheDaChon),
+        new SqlParameter("@TienGhe", tienGhe),
+        new SqlParameter("@TienDoAn", tienDoAn),
+        new SqlParameter("@TongTien", tongTien),
+        new SqlParameter("@PhuongThuc", phuongThuc)
+    };
 
             object result = dp.ExecuteScalar(sql, prms);
             return System.Convert.ToInt32(result);
