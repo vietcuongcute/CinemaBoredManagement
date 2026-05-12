@@ -67,11 +67,11 @@
             // lblSoPhim
             // 
             this.lblSoPhim.AutoSize = true;
-            this.lblSoPhim.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoPhim.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoPhim.ForeColor = System.Drawing.Color.White;
-            this.lblSoPhim.Location = new System.Drawing.Point(106, 40);
+            this.lblSoPhim.Location = new System.Drawing.Point(92, 40);
             this.lblSoPhim.Name = "lblSoPhim";
-            this.lblSoPhim.Size = new System.Drawing.Size(30, 22);
+            this.lblSoPhim.Size = new System.Drawing.Size(25, 19);
             this.lblSoPhim.TabIndex = 2;
             this.lblSoPhim.Text = "10";
             // 
@@ -100,11 +100,11 @@
             // lblSoNhanVien
             // 
             this.lblSoNhanVien.AutoSize = true;
-            this.lblSoNhanVien.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoNhanVien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoNhanVien.ForeColor = System.Drawing.Color.White;
-            this.lblSoNhanVien.Location = new System.Drawing.Point(99, 40);
+            this.lblSoNhanVien.Location = new System.Drawing.Point(90, 40);
             this.lblSoNhanVien.Name = "lblSoNhanVien";
-            this.lblSoNhanVien.Size = new System.Drawing.Size(30, 22);
+            this.lblSoNhanVien.Size = new System.Drawing.Size(25, 19);
             this.lblSoNhanVien.TabIndex = 3;
             this.lblSoNhanVien.Text = "10";
             // 
@@ -133,11 +133,11 @@
             // lblTongTien
             // 
             this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTongTien.ForeColor = System.Drawing.Color.White;
-            this.lblTongTien.Location = new System.Drawing.Point(115, 40);
+            this.lblTongTien.Location = new System.Drawing.Point(83, 40);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(40, 22);
+            this.lblTongTien.Size = new System.Drawing.Size(33, 19);
             this.lblTongTien.TabIndex = 3;
             this.lblTongTien.Text = "100";
             // 
@@ -146,11 +146,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(47, 90);
+            this.label3.Location = new System.Drawing.Point(14, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 22);
+            this.label3.Size = new System.Drawing.Size(187, 22);
             this.label3.TabIndex = 1;
-            this.label3.Text = "TỔNG TIỀN";
+            this.label3.Text = "TỔNG DOANH THU";
             // 
             // label7
             // 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPhim = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@
             this.lblGiaVe = new System.Windows.Forms.Label();
             this.btnChonPhim = new System.Windows.Forms.Button();
             this.picPoster = new System.Windows.Forms.PictureBox();
+            this.dtpNgayChieu = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.SuspendLayout();
@@ -51,29 +52,29 @@
             // dgvPhim
             // 
             this.dgvPhim.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPhim.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPhim.Location = new System.Drawing.Point(29, 38);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPhim.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvPhim.Location = new System.Drawing.Point(29, 96);
             this.dgvPhim.MultiSelect = false;
             this.dgvPhim.Name = "dgvPhim";
             this.dgvPhim.ReadOnly = true;
             this.dgvPhim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhim.Size = new System.Drawing.Size(955, 283);
+            this.dgvPhim.Size = new System.Drawing.Size(955, 263);
             this.dgvPhim.TabIndex = 6;
             this.dgvPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhim_CellClick);
             // 
@@ -81,17 +82,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(25, 13);
+            this.label7.Location = new System.Drawing.Point(25, 43);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 22);
+            this.label7.Size = new System.Drawing.Size(161, 22);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Phim đang chiếu";
+            this.label7.Text = "Chọn ngày chiếu : ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(415, 355);
+            this.label1.Location = new System.Drawing.Point(415, 376);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 22);
             this.label1.TabIndex = 7;
@@ -101,7 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(415, 399);
+            this.label2.Location = new System.Drawing.Point(415, 420);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 22);
             this.label2.TabIndex = 8;
@@ -111,7 +112,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(784, 355);
+            this.label3.Location = new System.Drawing.Point(784, 376);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 22);
             this.label3.TabIndex = 9;
@@ -121,7 +122,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(784, 399);
+            this.label4.Location = new System.Drawing.Point(784, 420);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 22);
             this.label4.TabIndex = 10;
@@ -131,7 +132,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(415, 443);
+            this.label5.Location = new System.Drawing.Point(415, 464);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 22);
             this.label5.TabIndex = 11;
@@ -141,7 +142,7 @@
             // 
             this.lblMaPhim.AutoSize = true;
             this.lblMaPhim.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaPhim.Location = new System.Drawing.Point(523, 355);
+            this.lblMaPhim.Location = new System.Drawing.Point(523, 376);
             this.lblMaPhim.Name = "lblMaPhim";
             this.lblMaPhim.Size = new System.Drawing.Size(40, 22);
             this.lblMaPhim.TabIndex = 12;
@@ -151,7 +152,7 @@
             // 
             this.lblTenPhim.AutoSize = true;
             this.lblTenPhim.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenPhim.Location = new System.Drawing.Point(523, 399);
+            this.lblTenPhim.Location = new System.Drawing.Point(523, 420);
             this.lblTenPhim.Name = "lblTenPhim";
             this.lblTenPhim.Size = new System.Drawing.Size(40, 22);
             this.lblTenPhim.TabIndex = 13;
@@ -161,7 +162,7 @@
             // 
             this.lblTheLoai.AutoSize = true;
             this.lblTheLoai.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheLoai.Location = new System.Drawing.Point(523, 443);
+            this.lblTheLoai.Location = new System.Drawing.Point(523, 464);
             this.lblTheLoai.Name = "lblTheLoai";
             this.lblTheLoai.Size = new System.Drawing.Size(40, 22);
             this.lblTheLoai.TabIndex = 14;
@@ -171,7 +172,7 @@
             // 
             this.lblThoiLuong.AutoSize = true;
             this.lblThoiLuong.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThoiLuong.Location = new System.Drawing.Point(903, 355);
+            this.lblThoiLuong.Location = new System.Drawing.Point(903, 376);
             this.lblThoiLuong.Name = "lblThoiLuong";
             this.lblThoiLuong.Size = new System.Drawing.Size(40, 22);
             this.lblThoiLuong.TabIndex = 15;
@@ -181,7 +182,7 @@
             // 
             this.lblGiaVe.AutoSize = true;
             this.lblGiaVe.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaVe.Location = new System.Drawing.Point(903, 399);
+            this.lblGiaVe.Location = new System.Drawing.Point(903, 420);
             this.lblGiaVe.Name = "lblGiaVe";
             this.lblGiaVe.Size = new System.Drawing.Size(40, 22);
             this.lblGiaVe.TabIndex = 16;
@@ -196,7 +197,7 @@
             this.btnChonPhim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChonPhim.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonPhim.ForeColor = System.Drawing.Color.White;
-            this.btnChonPhim.Location = new System.Drawing.Point(589, 521);
+            this.btnChonPhim.Location = new System.Drawing.Point(593, 542);
             this.btnChonPhim.Name = "btnChonPhim";
             this.btnChonPhim.Size = new System.Drawing.Size(151, 36);
             this.btnChonPhim.TabIndex = 17;
@@ -206,18 +207,28 @@
             // 
             // picPoster
             // 
-            this.picPoster.Location = new System.Drawing.Point(93, 355);
+            this.picPoster.Location = new System.Drawing.Point(91, 376);
             this.picPoster.Name = "picPoster";
             this.picPoster.Size = new System.Drawing.Size(163, 202);
             this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPoster.TabIndex = 19;
             this.picPoster.TabStop = false;
             // 
+            // dtpNgayChieu
+            // 
+            this.dtpNgayChieu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayChieu.Location = new System.Drawing.Point(192, 39);
+            this.dtpNgayChieu.Name = "dtpNgayChieu";
+            this.dtpNgayChieu.Size = new System.Drawing.Size(261, 26);
+            this.dtpNgayChieu.TabIndex = 30;
+            this.dtpNgayChieu.ValueChanged += new System.EventHandler(this.dtpNgayChieu_ValueChanged);
+            // 
             // UCMuaVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.dtpNgayChieu);
             this.Controls.Add(this.picPoster);
             this.Controls.Add(this.btnChonPhim);
             this.Controls.Add(this.lblGiaVe);
@@ -258,5 +269,6 @@
         private System.Windows.Forms.Label lblGiaVe;
         private System.Windows.Forms.Button btnChonPhim;
         private System.Windows.Forms.PictureBox picPoster;
+        private System.Windows.Forms.DateTimePicker dtpNgayChieu;
     }
 }

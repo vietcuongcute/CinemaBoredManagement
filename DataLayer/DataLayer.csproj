@@ -50,6 +50,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CustomerDL.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DoanhThuDL.cs" />
     <Compile Include="FoodDL.cs" />
     <Compile Include="LoginDL.cs" />
     <Compile Include="MovieDL.cs" />

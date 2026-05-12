@@ -20,14 +20,14 @@ namespace PresentationLayer
         private int _thoiLuong;
         private decimal _giaVe;
         private string _duongDanAnh;
+
+        private int _suatChieuID = 0;
         private string _ngayChieu = "";
         private string _gioChieu = "";
         private string _phongChieu = "";
-
-        private int _suatChieuID = 0;
-
+        private DateTime _ngayChieuDangChon;
         SuatChieuBL suatChieuBL = new SuatChieuBL();
-        public FormChonSuatChieu(int movieID, string tenPhim, string theLoai, int thoiLuong, decimal giaVe, string duongDanAnh)
+        public FormChonSuatChieu(int movieID, string tenPhim, string theLoai, int thoiLuong, decimal giaVe, string duongDanAnh, DateTime ngayChieu)
         {
             InitializeComponent();
             _movieID = movieID;
@@ -36,55 +36,51 @@ namespace PresentationLayer
             _thoiLuong = thoiLuong;
             _giaVe = giaVe;
             _duongDanAnh = duongDanAnh;
+            _ngayChieuDangChon = ngayChieu.Date;
         }
 
         private void FormChonSuatChieu_Load_1(object sender, EventArgs e)
         {
-            lblTenPhim.Text = "Chọn suất chiếu - " + _tenPhim;
+            lblTenPhim.Text = "Chọn suất chiếu - " + _tenPhim ;
+            label2.Text = _ngayChieuDangChon.ToString("dd/MM/yyyy");
+
+            cboSuatChieu.DropDownStyle = ComboBoxStyle.DropDownList;
+
             LoadSuatChieu();
         }
         private void LoadSuatChieu()
         {
-            dgvSuatChieu.DataSource = suatChieuBL.LaySuatChieuTheoPhim(_movieID);
+            DataTable dt = suatChieuBL.LaySuatChieuTheoPhimVaNgay(_movieID, _ngayChieuDangChon);
 
-            dgvSuatChieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSuatChieu.AllowUserToAddRows = false;
-            dgvSuatChieu.ReadOnly = true;
-            dgvSuatChieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSuatChieu.MultiSelect = false;
+            dt.Columns.Add("GioHienThi", typeof(string));
 
-            if (dgvSuatChieu.Columns.Contains("SuatChieuID"))
-                dgvSuatChieu.Columns["SuatChieuID"].HeaderText = "Mã suất";
-
-            if (dgvSuatChieu.Columns.Contains("MovieID"))
-                dgvSuatChieu.Columns["MovieID"].Visible = false;
-
-            if (dgvSuatChieu.Columns.Contains("NgayChieu"))
-                dgvSuatChieu.Columns["NgayChieu"].HeaderText = "Ngày chiếu";
-
-            if (dgvSuatChieu.Columns.Contains("GioChieu"))
-                dgvSuatChieu.Columns["GioChieu"].HeaderText = "Giờ chiếu";
-
-            if (dgvSuatChieu.Columns.Contains("PhongChieu"))
-                dgvSuatChieu.Columns["PhongChieu"].HeaderText = "Phòng chiếu";
-
-            if (dgvSuatChieu.Columns.Contains("TrangThai"))
-                dgvSuatChieu.Columns["TrangThai"].HeaderText = "Trạng thái";
-        }
-
-        private void dgvSuatChieu_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            foreach (DataRow row in dt.Rows)
             {
-                DataGridViewRow row = dgvSuatChieu.Rows[e.RowIndex];
+                string gio = "";
 
-                _suatChieuID = Convert.ToInt32(row.Cells["SuatChieuID"].Value);
+                if (row["GioChieu"] is TimeSpan)
+                {
+                    TimeSpan time = (TimeSpan)row["GioChieu"];
+                    gio = time.ToString(@"hh\:mm");
+                }
+                else
+                {
+                    gio = row["GioChieu"].ToString();
 
-                _ngayChieu = Convert.ToDateTime(row.Cells["NgayChieu"].Value).ToString("dd/MM/yyyy");
-                _gioChieu = row.Cells["GioChieu"].Value.ToString();
-                _phongChieu = row.Cells["PhongChieu"].Value.ToString();
+                    if (TimeSpan.TryParse(gio, out TimeSpan time))
+                        gio = time.ToString(@"hh\:mm");
+                }
+
+                row["GioHienThi"] = gio;
             }
+
+            cboSuatChieu.DataSource = dt;
+            cboSuatChieu.DisplayMember = "GioHienThi";
+            cboSuatChieu.ValueMember = "SuatChieuID";
+            cboSuatChieu.SelectedIndex = -1;
         }
+
+        
 
         private void btnChonSuat_Click_1(object sender, EventArgs e)
         {
@@ -103,10 +99,13 @@ namespace PresentationLayer
                 _giaVe,
                 _duongDanAnh,
                 _ngayChieu,
-                 _gioChieu,
+                _gioChieu,
                 _phongChieu
             );
+
+            this.Hide();
             f.ShowDialog();
+            this.Close();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -117,6 +116,37 @@ namespace PresentationLayer
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cboSuatChieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSuatChieu.SelectedIndex == -1 || cboSuatChieu.SelectedItem == null)
+                return;
+
+            DataRowView row = cboSuatChieu.SelectedItem as DataRowView;
+
+            if (row == null)
+                return;
+
+            _suatChieuID = Convert.ToInt32(row["SuatChieuID"]);
+
+            DateTime ngay = Convert.ToDateTime(row["NgayChieu"]);
+            _ngayChieu = ngay.ToString("dd/MM/yyyy");
+
+            if (row["GioChieu"] is TimeSpan)
+            {
+                TimeSpan gio = (TimeSpan)row["GioChieu"];
+                _gioChieu = gio.ToString(@"hh\:mm");
+            }
+            else
+            {
+                if (TimeSpan.TryParse(row["GioChieu"].ToString(), out TimeSpan gio))
+                    _gioChieu = gio.ToString(@"hh\:mm");
+                else
+                    _gioChieu = row["GioChieu"].ToString();
+            }
+
+            _phongChieu = row["PhongChieu"].ToString();
         }
     }
 }

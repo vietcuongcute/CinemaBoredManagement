@@ -17,6 +17,7 @@ namespace PresentationLayer
         public FormDangNhap()
         {
             InitializeComponent();
+            this.AcceptButton = btnDangNhap;
             this.Shown += FormDangNhap_Shown;
 
         }

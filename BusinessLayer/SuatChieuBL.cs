@@ -45,5 +45,17 @@ namespace BusinessLayer
             if (suatChieuID <= 0) return false;
             return suatChieuDL.XoaSuatChieu(suatChieuID);
         }
+
+        public DataTable LayPhimTheoNgay(DateTime ngayChieu)
+        {
+            return suatChieuDL.LayPhimTheoNgay(ngayChieu);
+        }
+
+        public DataTable LaySuatChieuTheoPhimVaNgay(int movieID, DateTime ngayChieu)
+        {
+            if (movieID <= 0) return new DataTable();
+
+            return suatChieuDL.LaySuatChieuTheoPhimVaNgay(movieID, ngayChieu);
+        }
     }
 }

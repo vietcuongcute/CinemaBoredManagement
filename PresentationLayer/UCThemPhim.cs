@@ -36,6 +36,22 @@ namespace PresentationLayer
             txtSucChua.Text = "49";
             txtGiaVe.Text = "75,000 VND";
             TaiDuLieuPhim();
+            cboTheLoai.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTheLoai.Items.Clear();
+
+            cboTheLoai.Items.Add("Kinh dị");
+            cboTheLoai.Items.Add("Lãng mạn");
+            cboTheLoai.Items.Add("Hài hước");
+            cboTheLoai.Items.Add("Hài hước, kinh dị");
+            cboTheLoai.Items.Add("Hoạt hình");
+            cboTheLoai.Items.Add("Lịch sử");
+            cboTheLoai.Items.Add("Hành động");
+            cboTheLoai.Items.Add("Hành động, hài");
+            cboTheLoai.Items.Add("Tâm lý");
+            cboTheLoai.Items.Add("Phiêu lưu");
+            cboTheLoai.Items.Add("Khoa học viễn tưởng");
+
+            cboTheLoai.SelectedIndex = -1;
         }
         private void TaiDuLieuPhim()
         {
@@ -55,7 +71,7 @@ namespace PresentationLayer
         {
             txtMaPhim.Text = "";
             txtTenPhim.Text = "";
-            txtTheLoai.Text = "";
+            cboTheLoai.SelectedIndex = -1;
             txtThoiLuong.Text = "";
             cbTinhTrang.SelectedIndex = 0;
             txtSucChua.Text = "49";
@@ -70,7 +86,7 @@ namespace PresentationLayer
         {
             txtMaPhim.Text = "";
             txtTenPhim.Text = "";
-            txtTheLoai.Text = "";
+            cboTheLoai.SelectedIndex = -1;
             txtThoiLuong.Text = "";
             cbTinhTrang.SelectedIndex = 0;
 
@@ -111,8 +127,9 @@ namespace PresentationLayer
                 return;
             }
 
+            
             string title = txtTenPhim.Text.Trim();
-            string genre = txtTheLoai.Text.Trim();
+            string genre = cboTheLoai.Text.Trim();
             string status = cbTinhTrang.Text.Trim();
 
             if (!int.TryParse(txtThoiLuong.Text.Trim(), out int duration))
@@ -129,7 +146,14 @@ namespace PresentationLayer
             string picture = duongDanAnh;
 
             bool kq = themPhimBL.CapNhatPhim(movieID, title, genre, duration, status, capacity, price, duongDanAnh);
-
+            if (title == "" || genre == "" || txtThoiLuong.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin phim!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
             if (kq)
             {
                 MessageBox.Show("Cập nhật phim thành công!",
@@ -240,7 +264,7 @@ namespace PresentationLayer
             {
                 txtMaPhim.Text = dgvPhim.Rows[e.RowIndex].Cells["MovieID"].Value.ToString();
                 txtTenPhim.Text = dgvPhim.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-                txtTheLoai.Text = dgvPhim.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
+                cboTheLoai.Text = dgvPhim.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 txtThoiLuong.Text = dgvPhim.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
                 cbTinhTrang.Text = dgvPhim.Rows[e.RowIndex].Cells["Status"].Value.ToString();
                 txtSucChua.Text = dgvPhim.Rows[e.RowIndex].Cells["Capacity"].Value.ToString();
@@ -269,7 +293,7 @@ namespace PresentationLayer
         private void btnMoi_Click(object sender, EventArgs e)
         {
             string title = txtTenPhim.Text.Trim();
-            string genre = txtTheLoai.Text.Trim();
+            string genre = cboTheLoai.Text.Trim();
             string status = cbTinhTrang.Text.Trim();
 
             if (title == "" || genre == "" || txtThoiLuong.Text.Trim() == "")

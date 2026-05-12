@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPhim = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaPhim = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenPhim = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTheLoai = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtThoiLuong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtGiaVe = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.picPoster = new System.Windows.Forms.PictureBox();
             this.cbTinhTrang = new System.Windows.Forms.ComboBox();
             this.btnXoaHet = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
@@ -53,6 +51,8 @@
             this.btnMoi = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMoii = new System.Windows.Forms.Button();
+            this.picPoster = new System.Windows.Forms.PictureBox();
+            this.cboTheLoai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.SuspendLayout();
@@ -60,23 +60,23 @@
             // dgvPhim
             // 
             this.dgvPhim.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPhim.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPhim.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPhim.Location = new System.Drawing.Point(22, 35);
             this.dgvPhim.MultiSelect = false;
             this.dgvPhim.Name = "dgvPhim";
@@ -131,14 +131,6 @@
             this.label1.Size = new System.Drawing.Size(102, 22);
             this.label1.TabIndex = 29;
             this.label1.Text = "Tên phim : ";
-            // 
-            // txtTheLoai
-            // 
-            this.txtTheLoai.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTheLoai.Location = new System.Drawing.Point(161, 420);
-            this.txtTheLoai.Name = "txtTheLoai";
-            this.txtTheLoai.Size = new System.Drawing.Size(217, 29);
-            this.txtTheLoai.TabIndex = 32;
             // 
             // label2
             // 
@@ -216,17 +208,9 @@
             this.label8.TabIndex = 39;
             this.label8.Text = "Giá vé : ";
             // 
-            // picPoster
-            // 
-            this.picPoster.Location = new System.Drawing.Point(801, 296);
-            this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(176, 218);
-            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPoster.TabIndex = 41;
-            this.picPoster.TabStop = false;
-            // 
             // cbTinhTrang
             // 
+            this.cbTinhTrang.BackColor = System.Drawing.Color.White;
             this.cbTinhTrang.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTinhTrang.FormattingEnabled = true;
             this.cbTinhTrang.Location = new System.Drawing.Point(593, 296);
@@ -336,11 +320,31 @@
             this.btnMoii.UseVisualStyleBackColor = false;
             this.btnMoii.Click += new System.EventHandler(this.btnMoii_Click);
             // 
+            // picPoster
+            // 
+            this.picPoster.Location = new System.Drawing.Point(801, 296);
+            this.picPoster.Name = "picPoster";
+            this.picPoster.Size = new System.Drawing.Size(176, 218);
+            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPoster.TabIndex = 41;
+            this.picPoster.TabStop = false;
+            // 
+            // cboTheLoai
+            // 
+            this.cboTheLoai.BackColor = System.Drawing.Color.White;
+            this.cboTheLoai.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTheLoai.FormattingEnabled = true;
+            this.cboTheLoai.Location = new System.Drawing.Point(161, 420);
+            this.cboTheLoai.Name = "cboTheLoai";
+            this.cboTheLoai.Size = new System.Drawing.Size(217, 29);
+            this.cboTheLoai.TabIndex = 49;
+            // 
             // UCThemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cboTheLoai);
             this.Controls.Add(this.btnMoii);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnXoaHet);
@@ -356,7 +360,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtThoiLuong);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTheLoai);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTenPhim);
             this.Controls.Add(this.label1);
@@ -382,7 +385,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenPhim;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTheLoai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtThoiLuong;
         private System.Windows.Forms.Label label4;
@@ -399,5 +401,6 @@
         private System.Windows.Forms.Button btnMoi;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMoii;
+        private System.Windows.Forms.ComboBox cboTheLoai;
     }
 }

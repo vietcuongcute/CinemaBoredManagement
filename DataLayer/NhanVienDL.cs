@@ -96,5 +96,15 @@ namespace DataLayer
             int count = (int)dp.ExecuteScalar(sql, parameters);
             return count > 0;
         }
+        public int DemSoNhanVien()
+        {
+            string sql = @"
+        SELECT COUNT(*) 
+        FROM TaiKhoan
+        WHERE VaiTro = N'Nhân viên' OR VaiTro = N'NhanVien'";
+
+            object result = dp.ExecuteScalar(sql);
+            return Convert.ToInt32(result);
+        }
     }
 }

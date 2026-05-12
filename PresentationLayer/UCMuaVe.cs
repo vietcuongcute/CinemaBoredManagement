@@ -14,6 +14,7 @@ namespace PresentationLayer
 {
     public partial class UCMuaVe : UserControl
     {
+        private SuatChieuBL suatChieuBL = new SuatChieuBL();
         MovieBL movieBL = new MovieBL();
         private int movieID = 0;
         private string tenPhim = "";
@@ -23,27 +24,69 @@ namespace PresentationLayer
         private string duongDanAnh = "";
         public UCMuaVe()
         {
+
             InitializeComponent();
         }
 
         private void UCMuaVe_Load(object sender, EventArgs e)
         {
-            LoadDanhSachPhim();
+            dtpNgayChieu.Value = DateTime.Now;
+            LoadDanhSachPhimTheoNgay();
         }
-        private void LoadDanhSachPhim()
+        private void LoadDanhSachPhimTheoNgay()
         {
-            dgvPhim.DataSource = movieBL.LayDanhSachPhim();
+            DateTime ngayChieu = dtpNgayChieu.Value.Date;
+
+            dgvPhim.DataSource = suatChieuBL.LayPhimTheoNgay(ngayChieu);
+
             dgvPhim.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhim.AllowUserToAddRows = false;
             dgvPhim.ReadOnly = true;
+            dgvPhim.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPhim.MultiSelect = false;
 
-            dgvPhim.Columns["MovieID"].HeaderText = "Mã phim";
-            dgvPhim.Columns["Title"].HeaderText = "Tên phim";
-            dgvPhim.Columns["Genre"].HeaderText = "Thể loại";
-            dgvPhim.Columns["Duration"].HeaderText = "Thời lượng";
-            dgvPhim.Columns["Status"].HeaderText = "Trạng thái";
-            dgvPhim.Columns["Capacity"].HeaderText = "Sức chứa";
-            dgvPhim.Columns["Price"].HeaderText = "Giá";
+            if (dgvPhim.Columns.Contains("MovieID"))
+                dgvPhim.Columns["MovieID"].HeaderText = "Mã phim";
+
+            if (dgvPhim.Columns.Contains("Title"))
+                dgvPhim.Columns["Title"].HeaderText = "Tên phim";
+
+            if (dgvPhim.Columns.Contains("Genre"))
+                dgvPhim.Columns["Genre"].HeaderText = "Thể loại";
+
+            if (dgvPhim.Columns.Contains("Duration"))
+                dgvPhim.Columns["Duration"].HeaderText = "Thời lượng";
+
+            if (dgvPhim.Columns.Contains("Status"))
+                dgvPhim.Columns["Status"].HeaderText = "Trạng thái";
+
+            if (dgvPhim.Columns.Contains("Capacity"))
+                dgvPhim.Columns["Capacity"].HeaderText = "Sức chứa";
+
+            if (dgvPhim.Columns.Contains("Price"))
+                dgvPhim.Columns["Price"].HeaderText = "Giá";
+
+            if (dgvPhim.Columns.Contains("Picture"))
+                dgvPhim.Columns["Picture"].HeaderText = "Picture";
+
+            LamMoiThongTinPhim();
+        }
+
+        private void LamMoiThongTinPhim()
+        {
+            movieID = 0;
+            tenPhim = "";
+            theLoai = "";
+            thoiLuong = 0;
+            giaVe = 0;
+            duongDanAnh = "";
+
+            lblMaPhim.Text = "___";
+            lblTenPhim.Text = "___";
+            lblTheLoai.Text = "___";
+            lblThoiLuong.Text = "___";
+            lblGiaVe.Text = "___";
+            picPoster.Image = null;
         }
 
         private void dgvPhim_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +114,7 @@ namespace PresentationLayer
                     {
                         picPoster.Image = new Bitmap(imgTemp);
                     }
+
                     picPoster.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
                 else
@@ -79,6 +123,7 @@ namespace PresentationLayer
                 }
             }
         }
+        
 
         private void btnChonPhim_Click(object sender, EventArgs e)
         {
@@ -88,16 +133,27 @@ namespace PresentationLayer
                 return;
             }
 
+            DateTime ngayChieu = dtpNgayChieu.Value.Date;
+
             FormChonSuatChieu f = new FormChonSuatChieu(
-                    movieID,
-                    tenPhim,
-                    theLoai,
-                    thoiLuong,
-                    giaVe,
-                    duongDanAnh
+                movieID,
+                tenPhim,
+                theLoai,
+                thoiLuong,
+                giaVe,
+                duongDanAnh,
+                ngayChieu
             );
 
             f.ShowDialog();
+
+            
+        }
+
+
+        private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDanhSachPhimTheoNgay();
         }
     }
 
