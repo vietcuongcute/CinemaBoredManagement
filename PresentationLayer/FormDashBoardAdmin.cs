@@ -70,5 +70,10 @@ namespace PresentationLayer
         {
             MoUserControl(new UCBangDieuKhien());
         }
+
+        private void btnSuatChieu_Click(object sender, EventArgs e)
+        {
+            MoUserControl(new UCQuanLySuatChieu());
+        }
     }
 }

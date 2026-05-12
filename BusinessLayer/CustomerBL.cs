@@ -20,5 +20,35 @@ namespace BusinessLayer
         {
             return customerDL.LayDanhSachKhachHang();
         }
+        public bool CapNhatKhachHang(int customerID, string hoTen, string sdt, string email)
+        {
+            if (customerID <= 0) return false;
+
+            if (string.IsNullOrWhiteSpace(hoTen) ||
+                string.IsNullOrWhiteSpace(sdt))
+                return false;
+
+            return customerDL.CapNhatKhachHang(
+                customerID,
+                hoTen.Trim(),
+                sdt.Trim(),
+                email.Trim()
+            );
+        }
+
+        public bool XoaKhachHang(int customerID)
+        {
+            if (customerID <= 0) return false;
+
+            return customerDL.XoaKhachHang(customerID);
+        }
+
+        public DataTable TimKiemKhachHang(string tuKhoa)
+        {
+            if (string.IsNullOrWhiteSpace(tuKhoa))
+                return customerDL.LayDanhSachKhachHang();
+
+            return customerDL.TimKiemKhachHang(tuKhoa.Trim());
+        }
     }
 }

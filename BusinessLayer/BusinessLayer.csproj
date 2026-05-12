@@ -47,6 +47,7 @@
     <Compile Include="BillBL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CustomerBL.cs" />
+    <Compile Include="DoanhThuBL.cs" />
     <Compile Include="FoodBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="MovieBL.cs" />

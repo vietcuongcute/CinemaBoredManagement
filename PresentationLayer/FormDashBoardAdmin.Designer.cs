@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnKhachHang = new System.Windows.Forms.Button();
+            this.btnDoanhThu = new System.Windows.Forms.Button();
             this.btnDangxuat = new System.Windows.Forms.Button();
             this.btnThemPhim = new System.Windows.Forms.Button();
             this.btnThemNhanVien = new System.Windows.Forms.Button();
             this.btnBangDieuKhien = new System.Windows.Forms.Button();
-            this.btnDoanhThu = new System.Windows.Forms.Button();
-            this.btnKhachHang = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnSuatChieu = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -46,6 +48,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -58,6 +61,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.BlueViolet;
+            this.panelMenu.Controls.Add(this.pictureBox7);
+            this.panelMenu.Controls.Add(this.btnSuatChieu);
             this.panelMenu.Controls.Add(this.pictureBox6);
             this.panelMenu.Controls.Add(this.btnKhachHang);
             this.panelMenu.Controls.Add(this.pictureBox5);
@@ -76,6 +81,36 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(281, 690);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.BackColor = System.Drawing.Color.White;
+            this.btnKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhachHang.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhachHang.ForeColor = System.Drawing.Color.Purple;
+            this.btnKhachHang.Location = new System.Drawing.Point(67, 535);
+            this.btnKhachHang.Name = "btnKhachHang";
+            this.btnKhachHang.Size = new System.Drawing.Size(183, 47);
+            this.btnKhachHang.TabIndex = 11;
+            this.btnKhachHang.Text = "Khách hàng";
+            this.btnKhachHang.UseVisualStyleBackColor = false;
+            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
+            // 
+            // btnDoanhThu
+            // 
+            this.btnDoanhThu.BackColor = System.Drawing.Color.White;
+            this.btnDoanhThu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoanhThu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoanhThu.ForeColor = System.Drawing.Color.Purple;
+            this.btnDoanhThu.Location = new System.Drawing.Point(67, 466);
+            this.btnDoanhThu.Name = "btnDoanhThu";
+            this.btnDoanhThu.Size = new System.Drawing.Size(183, 47);
+            this.btnDoanhThu.TabIndex = 9;
+            this.btnDoanhThu.Text = "Doanh thu";
+            this.btnDoanhThu.UseVisualStyleBackColor = false;
+            this.btnDoanhThu.Click += new System.EventHandler(this.btnDoanhThu_Click);
             // 
             // btnDangxuat
             // 
@@ -103,7 +138,7 @@
             this.btnThemPhim.Name = "btnThemPhim";
             this.btnThemPhim.Size = new System.Drawing.Size(183, 47);
             this.btnThemPhim.TabIndex = 3;
-            this.btnThemPhim.Text = "Thêm phim";
+            this.btnThemPhim.Text = "Phim";
             this.btnThemPhim.UseVisualStyleBackColor = false;
             this.btnThemPhim.Click += new System.EventHandler(this.btnThemPhim_Click);
             // 
@@ -118,7 +153,7 @@
             this.btnThemNhanVien.Name = "btnThemNhanVien";
             this.btnThemNhanVien.Size = new System.Drawing.Size(183, 47);
             this.btnThemNhanVien.TabIndex = 2;
-            this.btnThemNhanVien.Text = "Thêm nhân viên";
+            this.btnThemNhanVien.Text = "Nhân viên";
             this.btnThemNhanVien.UseVisualStyleBackColor = false;
             this.btnThemNhanVien.Click += new System.EventHandler(this.btnThemNhanVien_Click);
             // 
@@ -136,36 +171,6 @@
             this.btnBangDieuKhien.Text = "Bảng điều khiển";
             this.btnBangDieuKhien.UseVisualStyleBackColor = false;
             this.btnBangDieuKhien.Click += new System.EventHandler(this.btnBangDieuKhien_Click);
-            // 
-            // btnDoanhThu
-            // 
-            this.btnDoanhThu.BackColor = System.Drawing.Color.White;
-            this.btnDoanhThu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoanhThu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoanhThu.ForeColor = System.Drawing.Color.Purple;
-            this.btnDoanhThu.Location = new System.Drawing.Point(67, 410);
-            this.btnDoanhThu.Name = "btnDoanhThu";
-            this.btnDoanhThu.Size = new System.Drawing.Size(183, 47);
-            this.btnDoanhThu.TabIndex = 9;
-            this.btnDoanhThu.Text = "Doanh thu";
-            this.btnDoanhThu.UseVisualStyleBackColor = false;
-            this.btnDoanhThu.Click += new System.EventHandler(this.btnDoanhThu_Click);
-            // 
-            // btnKhachHang
-            // 
-            this.btnKhachHang.BackColor = System.Drawing.Color.White;
-            this.btnKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhachHang.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhachHang.ForeColor = System.Drawing.Color.Purple;
-            this.btnKhachHang.Location = new System.Drawing.Point(67, 487);
-            this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Size = new System.Drawing.Size(183, 47);
-            this.btnKhachHang.TabIndex = 11;
-            this.btnKhachHang.Text = "Khách hàng";
-            this.btnKhachHang.UseVisualStyleBackColor = false;
-            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
             // btnThoat
             // 
@@ -197,10 +202,35 @@
             this.panelMain.Size = new System.Drawing.Size(1010, 624);
             this.panelMain.TabIndex = 5;
             // 
+            // btnSuatChieu
+            // 
+            this.btnSuatChieu.BackColor = System.Drawing.Color.White;
+            this.btnSuatChieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuatChieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuatChieu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuatChieu.ForeColor = System.Drawing.Color.Purple;
+            this.btnSuatChieu.Location = new System.Drawing.Point(67, 402);
+            this.btnSuatChieu.Name = "btnSuatChieu";
+            this.btnSuatChieu.Size = new System.Drawing.Size(183, 47);
+            this.btnSuatChieu.TabIndex = 13;
+            this.btnSuatChieu.Text = "Suất chiếu";
+            this.btnSuatChieu.UseVisualStyleBackColor = false;
+            this.btnSuatChieu.Click += new System.EventHandler(this.btnSuatChieu_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.suatchieu;
+            this.pictureBox7.Location = new System.Drawing.Point(14, 402);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 14;
+            this.pictureBox7.TabStop = false;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::PresentationLayer.Properties.Resources.customerIcon;
-            this.pictureBox6.Location = new System.Drawing.Point(14, 487);
+            this.pictureBox6.Location = new System.Drawing.Point(14, 535);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(40, 40);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -210,7 +240,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.moneyIcon1;
-            this.pictureBox5.Location = new System.Drawing.Point(14, 410);
+            this.pictureBox5.Location = new System.Drawing.Point(14, 466);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(40, 40);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -240,7 +270,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.staffIcon2;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 277);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 270);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,7 +280,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.dashboardicon1;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 211);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 204);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -284,6 +314,7 @@
             this.Text = "FormDashBoardAdmin";
             this.Load += new System.EventHandler(this.FormDashBoardAdmin_Load);
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -315,5 +346,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button btnSuatChieu;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

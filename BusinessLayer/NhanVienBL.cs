@@ -51,6 +51,9 @@ namespace BusinessLayer
         {
             return nhanVienDL.XoaHetNhanVien();
         }
-
+        public int DemSoNhanVien()
+        {
+            return nhanVienDL.DemSoNhanVien();
+        }
     }
 }

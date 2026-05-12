@@ -89,5 +89,51 @@ namespace DataLayer
 
             return dp.ExecuteNonQuery(sql, prms) > 0;
         }
+
+        public DataTable LayPhimTheoNgay(DateTime ngayChieu)
+        {
+            string sql = @"
+        SELECT DISTINCT 
+            p.MovieID,
+            p.Title,
+            p.Genre,
+            p.Duration,
+            p.Status,
+            p.Capacity,
+            p.Price,
+            p.Picture
+        FROM Phim p
+        INNER JOIN SuatChieu sc ON p.MovieID = sc.MovieID
+        WHERE sc.NgayChieu = @NgayChieu
+        AND sc.TrangThai = N'Có sẵn'
+        AND p.Status = N'Có sẵn'
+        ORDER BY p.Title";
+
+            SqlParameter[] prms =
+            {
+        new SqlParameter("@NgayChieu", ngayChieu.Date)
+    };
+
+            return dp.ExecuteQuery(sql, prms);
+        }
+
+        public DataTable LaySuatChieuTheoPhimVaNgay(int movieID, DateTime ngayChieu)
+        {
+            string sql = @"
+        SELECT SuatChieuID, MovieID, NgayChieu, GioChieu, PhongChieu, TrangThai
+        FROM SuatChieu
+        WHERE MovieID = @MovieID
+        AND NgayChieu = @NgayChieu
+        AND TrangThai = N'Có sẵn'
+        ORDER BY GioChieu";
+
+            SqlParameter[] prms =
+            {
+        new SqlParameter("@MovieID", movieID),
+        new SqlParameter("@NgayChieu", ngayChieu.Date)
+    };
+
+            return dp.ExecuteQuery(sql, prms);
+        }
     }
 }

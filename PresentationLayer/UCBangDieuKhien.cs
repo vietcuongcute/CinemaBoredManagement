@@ -16,6 +16,8 @@ namespace PresentationLayer
     {
         
         MovieBL movieBL = new MovieBL();
+        NhanVienBL nhanVienBL = new NhanVienBL();
+        DoanhThuBL doanhThuBL = new DoanhThuBL();
         public UCBangDieuKhien()
         {
             InitializeComponent();
@@ -25,25 +27,58 @@ namespace PresentationLayer
         {
             LoadSoPhim();
             LoadDanhSachPhim();
+            LoadTongDoanhThu();
+            LoadSoNhanVien();
         }
         private void LoadSoPhim()
         {
             lblSoPhim.Text = movieBL.DemSoPhim().ToString();
         }
+        private void LoadSoNhanVien()
+        {
+            lblSoNhanVien.Text = nhanVienBL.DemSoNhanVien().ToString();
+        }
+
+        private void LoadTongDoanhThu()
+        {
+            decimal tongDoanhThu = doanhThuBL.TinhTongDoanhThu();
+            lblTongTien.Text = tongDoanhThu.ToString("N0") + " VND";
+        }
+
         private void LoadDanhSachPhim()
         {
             dgvPhim.DataSource = movieBL.LayDanhSachPhim();
+
             dgvPhim.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhim.ReadOnly = true;
+            dgvPhim.AllowUserToAddRows = false;
+            dgvPhim.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPhim.MultiSelect = false;
 
-            dgvPhim.Columns["MovieID"].HeaderText = "Mã phim";
-            dgvPhim.Columns["Title"].HeaderText = "Tên phim";
-            dgvPhim.Columns["Genre"].HeaderText = "Thể loại";
-            dgvPhim.Columns["Duration"].HeaderText = "Thời lượng";
-            dgvPhim.Columns["Status"].HeaderText = "Trạng thái";
-            dgvPhim.Columns["Capacity"].HeaderText = "Sức chứa";
-            dgvPhim.Columns["Price"].HeaderText = "Giá";
-            
+            if (dgvPhim.Columns.Contains("MovieID"))
+                dgvPhim.Columns["MovieID"].HeaderText = "Mã phim";
+
+            if (dgvPhim.Columns.Contains("Title"))
+                dgvPhim.Columns["Title"].HeaderText = "Tên phim";
+
+            if (dgvPhim.Columns.Contains("Genre"))
+                dgvPhim.Columns["Genre"].HeaderText = "Thể loại";
+
+            if (dgvPhim.Columns.Contains("Duration"))
+                dgvPhim.Columns["Duration"].HeaderText = "Thời lượng";
+
+            if (dgvPhim.Columns.Contains("Status"))
+                dgvPhim.Columns["Status"].HeaderText = "Trạng thái";
+
+            if (dgvPhim.Columns.Contains("Capacity"))
+                dgvPhim.Columns["Capacity"].HeaderText = "Sức chứa";
+
+            if (dgvPhim.Columns.Contains("Price"))
+                dgvPhim.Columns["Price"].HeaderText = "Giá";
+
+            if (dgvPhim.Columns.Contains("Picture"))
+                dgvPhim.Columns["Picture"].HeaderText = "Picture";
         }
+        
     }
 }
